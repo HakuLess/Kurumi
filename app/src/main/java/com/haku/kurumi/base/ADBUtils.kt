@@ -46,7 +46,8 @@ fun takeScreenshot(filename: String): String {
 //                }
 
                 val os = process.outputStream
-                val str = "/system/bin/screencap -p /sdcard/img_${System.currentTimeMillis()}.png"
+//                val str = "/system/bin/screencap -p /sdcard/img_${System.currentTimeMillis()}.png"
+                val str = "/system/bin/screencap -p /sdcard/${filename}"
 
                 os.write(str.toByteArray(charset("ASCII")))
                 Log.d("HaKu", "exec $str")

@@ -14,3 +14,6 @@
 .cxx
 local.properties
 .idea/*
+opencv/build
+opencv/etc
+opencv/java/javadoc

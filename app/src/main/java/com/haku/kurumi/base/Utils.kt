@@ -1,6 +1,7 @@
 package com.haku.kurumi.base
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import android.widget.Toast
@@ -14,14 +15,14 @@ fun Context.toast(msg: String) {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }
 
-fun readPngFile(filePath: String): ImageBitmap? {
+fun readPngFile(filePath: String): Bitmap? {
     Log.d("HaKu", "path is $filePath")
     val file = File(filePath)
     if (!file.exists()) {
         return null
     }
     Log.d("HaKu", "abs Path is ${file.absolutePath}")
-    return BitmapFactory.decodeFile(file.absolutePath)?.asImageBitmap()
+    return BitmapFactory.decodeFile(file.absolutePath)
 }
 
 fun runOnThread(scheduler: Scheduler, func: () -> Unit) {
