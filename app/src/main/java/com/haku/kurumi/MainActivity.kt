@@ -89,12 +89,13 @@ fun Greeting(context: Activity) {
                         )
                     } else {
                         context.toast("take test")
-                        a.value = takeScreenshot("test.png")
+                        takeScreenshot("${System.currentTimeMillis()}.png", a)
                     }
                 },
         )
 
-        LocalImage("/sdcard/test.png")
+//        LocalImage("/sdcard/test.png")
+        LocalImage(a.value)
 //        val l = ArrayList<String>()
 //        repeat(100) {
 //            l.add(it.toString())

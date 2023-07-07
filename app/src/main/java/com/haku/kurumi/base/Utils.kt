@@ -3,6 +3,8 @@ package com.haku.kurumi.base
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.ui.graphics.ImageBitmap
@@ -34,4 +36,14 @@ fun runOnThread(scheduler: Scheduler, func: () -> Unit) {
             }, {
                 it.printStackTrace()
             })
+}
+
+fun runOnMainThread(func: () -> Unit) {
+    Handler(Looper.getMainLooper()).post {
+        try {
+            func()
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
+    }
 }
