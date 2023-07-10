@@ -13,6 +13,7 @@ import rx.Observable
 import rx.Scheduler
 import java.io.File
 
+const val TAG = "HaKu"
 fun Context.toast(msg: String) {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }

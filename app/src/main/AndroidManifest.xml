@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!--    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />-->
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
 
     <application
         android:name=".base.KurumiApplication"
@@ -20,6 +23,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kurumi"
         tools:targetApi="31">
+
+        <service
+            android:name=".base.FabAccessibilityService"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilityservice" />
+        </service>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
